@@ -1,0 +1,21 @@
+PODS:
+  - BinaryCodable (0.2.1)
+
+DEPENDENCIES:
+  - "BinaryCodable (from `git@github.com:jverkoey/BinaryCodable.git`)"
+
+EXTERNAL SOURCES:
+  BinaryCodable:
+    :git: "git@github.com:jverkoey/BinaryCodable.git"
+
+CHECKOUT OPTIONS:
+  BinaryCodable:
+    :commit: 50126c5c8c994b3c8bb062b17137166fd22987c1
+    :git: "git@github.com:jverkoey/BinaryCodable.git"
+
+SPEC CHECKSUMS:
+  BinaryCodable: 92908a9338a428dd3bbb6ae9c97ec907e5f6e4a7
+
+PODFILE CHECKSUM: 84d730dba4dbf0bd831c7fa44a92f4f3ff691db2
+
+COCOAPODS: 1.8.4
