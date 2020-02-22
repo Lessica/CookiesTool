@@ -1,0 +1,12 @@
+Package: com.darwindev.CookiesTool-iOS
+Name: CookiesTool-iOS
+Version: 0.1-1
+Description: Convert between Apple BinaryCookies, Property List, JSON, Netscape HTTP Cookie File (curl cookie jar).
+Section: System
+Depends: firmware (>= 11.0)
+Priority: optional
+Architecture: iphoneos-arm
+Author: Lessica <i.82@me.com>
+Homepage: https://github.com/Lessica/CookiesTool
+Maintainer: Lessica <i.82@me.com>
+

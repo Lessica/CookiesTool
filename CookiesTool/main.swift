@@ -73,7 +73,7 @@ do {
     var format = Format.binary
     var options: Options = []
     var outputPath: String? = nil
-    var inputPath: String? = nil
+    var inputPaths: [String] = []
 
     let args = CommandLine.arguments
     var i = 1
@@ -109,7 +109,7 @@ do {
             i = i + 1
         }
         else {
-            inputPath = args[i]
+            inputPaths.append(args[i])
         }
         
         i = i + 1
@@ -120,7 +120,7 @@ do {
         exit(EXIT_SUCCESS)
     }
     
-    guard let path = inputPath else {
+    guard let path = inputPaths.first else {
         throw CustomError.missingArgumentFile
     }
     

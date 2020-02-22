@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26415BB84F44266FFCD6201E /* libPods-CookiesTool-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D586C319ED1BCD19A081513 /* libPods-CookiesTool-iOS.a */; };
 		554E63732BA2D6B60557201B /* libPods-CookiesTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7520AEDDAA49D81A2EBA8BC /* libPods-CookiesTool.a */; };
 		D614BE1D23FD1BFA00D32B27 /* BinaryCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1C23FD1BFA00D32B27 /* BinaryCookies.swift */; };
 		D614BE2023FD1CCF00D32B27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1E23FD1CCF00D32B27 /* Extensions.swift */; };
 		D614BE2123FD1CCF00D32B27 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1F23FD1CCF00D32B27 /* main.swift */; };
 		D68E05C923FFD91900C24AB0 /* NetscapeCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E05C823FFD91900C24AB0 /* NetscapeCookies.swift */; };
+		D68E05D02400DF6F00C24AB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68E05CF2400DF6F00C24AB0 /* Foundation.framework */; };
+		D68E05E12400E1B100C24AB0 /* NetscapeCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E05C823FFD91900C24AB0 /* NetscapeCookies.swift */; };
+		D68E05E22400E1B100C24AB0 /* BinaryCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1C23FD1BFA00D32B27 /* BinaryCookies.swift */; };
+		D68E05E32400E1B100C24AB0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1E23FD1CCF00D32B27 /* Extensions.swift */; };
+		D68E05E42400E1B100C24AB0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1F23FD1CCF00D32B27 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,12 +34,20 @@
 
 /* Begin PBXFileReference section */
 		1660125B9F2000D05F3AA840 /* Pods-CookiesTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookiesTool.debug.xcconfig"; path = "Target Support Files/Pods-CookiesTool/Pods-CookiesTool.debug.xcconfig"; sourceTree = "<group>"; };
+		321AB0A5EC69E0D07B7EAE06 /* Pods-CookiesTool-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookiesTool-iOS.debug.xcconfig"; path = "Target Support Files/Pods-CookiesTool-iOS/Pods-CookiesTool-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4D586C319ED1BCD19A081513 /* libPods-CookiesTool-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookiesTool-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B159991A507674AC7DCF724F /* Pods-CookiesTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookiesTool.release.xcconfig"; path = "Target Support Files/Pods-CookiesTool/Pods-CookiesTool.release.xcconfig"; sourceTree = "<group>"; };
+		D5B89DDEDB913E7018A1BE2E /* Pods-CookiesTool-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookiesTool-iOS.release.xcconfig"; path = "Target Support Files/Pods-CookiesTool-iOS/Pods-CookiesTool-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D614BE1223FD19BE00D32B27 /* CookiesTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CookiesTool; sourceTree = BUILT_PRODUCTS_DIR; };
 		D614BE1C23FD1BFA00D32B27 /* BinaryCookies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCookies.swift; sourceTree = "<group>"; };
 		D614BE1E23FD1CCF00D32B27 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D614BE1F23FD1CCF00D32B27 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D68E05C823FFD91900C24AB0 /* NetscapeCookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetscapeCookies.swift; sourceTree = "<group>"; };
+		D68E05CE2400DF6F00C24AB0 /* CookiesTool-iOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CookiesTool-iOS"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68E05CF2400DF6F00C24AB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D68E05D42400DF6F00C24AB0 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		D68E05D52400DF6F00C24AB0 /* platform.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = platform.entitlements; sourceTree = "<group>"; };
+		D68E05E02400E19B00C24AB0 /* CookiesTool-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CookiesTool-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		E7520AEDDAA49D81A2EBA8BC /* libPods-CookiesTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookiesTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -46,6 +60,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D68E05CB2400DF6F00C24AB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68E05D02400DF6F00C24AB0 /* Foundation.framework in Frameworks */,
+				26415BB84F44266FFCD6201E /* libPods-CookiesTool-iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -53,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				E7520AEDDAA49D81A2EBA8BC /* libPods-CookiesTool.a */,
+				D68E05CF2400DF6F00C24AB0 /* Foundation.framework */,
+				4D586C319ED1BCD19A081513 /* libPods-CookiesTool-iOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -62,6 +87,8 @@
 			children = (
 				1660125B9F2000D05F3AA840 /* Pods-CookiesTool.debug.xcconfig */,
 				B159991A507674AC7DCF724F /* Pods-CookiesTool.release.xcconfig */,
+				321AB0A5EC69E0D07B7EAE06 /* Pods-CookiesTool-iOS.debug.xcconfig */,
+				D5B89DDEDB913E7018A1BE2E /* Pods-CookiesTool-iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -70,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				D614BE1423FD19BE00D32B27 /* CookiesTool */,
+				D68E05D12400DF6F00C24AB0 /* CookiesTool-iOS */,
 				D614BE1323FD19BE00D32B27 /* Products */,
 				90132AC7E2C9513DF78B37D4 /* Pods */,
 				170F61F57C21B294C10DCCE2 /* Frameworks */,
@@ -80,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D614BE1223FD19BE00D32B27 /* CookiesTool */,
+				D68E05CE2400DF6F00C24AB0 /* CookiesTool-iOS */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +122,48 @@
 				D614BE1F23FD1CCF00D32B27 /* main.swift */,
 			);
 			path = CookiesTool;
+			sourceTree = "<group>";
+		};
+		D68E05D12400DF6F00C24AB0 /* CookiesTool-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D68E05E02400E19B00C24AB0 /* CookiesTool-iOS-Prefix.pch */,
+				D68E05D52400DF6F00C24AB0 /* platform.entitlements */,
+				D68E05D22400DF6F00C24AB0 /* Package */,
+			);
+			path = "CookiesTool-iOS";
+			sourceTree = "<group>";
+		};
+		D68E05D22400DF6F00C24AB0 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D68E05D32400DF6F00C24AB0 /* DEBIAN */,
+				D68E05D62400DF6F00C24AB0 /* usr */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		D68E05D32400DF6F00C24AB0 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D68E05D42400DF6F00C24AB0 /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D68E05D62400DF6F00C24AB0 /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				D68E05D72400DF6F00C24AB0 /* bin */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		D68E05D72400DF6F00C24AB0 /* bin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +187,24 @@
 			productReference = D614BE1223FD19BE00D32B27 /* CookiesTool */;
 			productType = "com.apple.product-type.tool";
 		};
+		D68E05CD2400DF6F00C24AB0 /* CookiesTool-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68E05DF2400DF6F00C24AB0 /* Build configuration list for PBXNativeTarget "CookiesTool-iOS" */;
+			buildPhases = (
+				54436FF59C7BF62E6AD0F0BF /* [CP] Check Pods Manifest.lock */,
+				D68E05CA2400DF6F00C24AB0 /* Sources */,
+				D68E05CB2400DF6F00C24AB0 /* Frameworks */,
+				D68E05CC2400DF6F00C24AB0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CookiesTool-iOS";
+			productName = "CookiesTool-iOS";
+			productReference = D68E05CE2400DF6F00C24AB0 /* CookiesTool-iOS */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -127,6 +216,9 @@
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					D614BE1123FD19BE00D32B27 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					D68E05CD2400DF6F00C24AB0 = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
@@ -145,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				D614BE1123FD19BE00D32B27 /* CookiesTool */,
+				D68E05CD2400DF6F00C24AB0 /* CookiesTool-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -172,6 +265,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		54436FF59C7BF62E6AD0F0BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CookiesTool-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D68E05CC2400DF6F00C24AB0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -183,6 +315,17 @@
 				D614BE1D23FD1BFA00D32B27 /* BinaryCookies.swift in Sources */,
 				D614BE2023FD1CCF00D32B27 /* Extensions.swift in Sources */,
 				D614BE2123FD1CCF00D32B27 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68E05CA2400DF6F00C24AB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68E05E22400E1B100C24AB0 /* BinaryCookies.swift in Sources */,
+				D68E05E32400E1B100C24AB0 /* Extensions.swift in Sources */,
+				D68E05E42400E1B100C24AB0 /* main.swift in Sources */,
+				D68E05E12400E1B100C24AB0 /* NetscapeCookies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1660125B9F2000D05F3AA840 /* Pods-CookiesTool.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -324,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B159991A507674AC7DCF724F /* Pods-CookiesTool.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -335,6 +480,104 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable/BinaryCodable.modulemap\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D68E05DD2400DF6F00C24AB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 321AB0A5EC69E0D07B7EAE06 /* Pods-CookiesTool-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "CookiesTool-iOS/platform.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GXZ23M5TP2;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CookiesTool-iOS/CookiesTool-iOS-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				INSTALL_PATH = /usr/bin;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevTheosPath)/vendor/lib/**",
+				);
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = 127.0.0.1;
+				MonkeyDevDevicePassword = "";
+				MonkeyDevDevicePort = 58422;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				MonkeyDevkillProcessOnInstall = "";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DTHEOS_INSTANCE_NAME=\"\\\"CookiesTool-iOS\\\"\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		D68E05DE2400DF6F00C24AB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5B89DDEDB913E7018A1BE2E /* Pods-CookiesTool-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "CookiesTool-iOS/platform.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GXZ23M5TP2;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CookiesTool-iOS/CookiesTool-iOS-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				INSTALL_PATH = /usr/bin;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevTheosPath)/vendor/lib/**",
+				);
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = 127.0.0.1;
+				MonkeyDevDevicePassword = "";
+				MonkeyDevDevicePort = 58422;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				MonkeyDevkillProcessOnInstall = "";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DTHEOS_INSTANCE_NAME=\"\\\"CookiesTool-iOS\\\"\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -355,6 +598,15 @@
 			buildConfigurations = (
 				D614BE1A23FD19BE00D32B27 /* Debug */,
 				D614BE1B23FD19BE00D32B27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68E05DF2400DF6F00C24AB0 /* Build configuration list for PBXNativeTarget "CookiesTool-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68E05DD2400DF6F00C24AB0 /* Debug */,
+				D68E05DE2400DF6F00C24AB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
