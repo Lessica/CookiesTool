@@ -449,16 +449,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1660125B9F2000D05F3AA840 /* Pods-CookiesTool.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				ENABLE_HARDENED_RUNTIME = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable\"",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable/BinaryCodable.modulemap\"";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -468,16 +462,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B159991A507674AC7DCF724F /* Pods-CookiesTool.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				ENABLE_HARDENED_RUNTIME = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable\"",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable/BinaryCodable.modulemap\"";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -487,7 +475,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 321AB0A5EC69E0D07B7EAE06 /* Pods-CookiesTool-iOS.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "CookiesTool-iOS/platform.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +513,7 @@
 				);
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
@@ -536,7 +524,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5B89DDEDB913E7018A1BE2E /* Pods-CookiesTool-iOS.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "CookiesTool-iOS/platform.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -575,6 +562,7 @@
 				);
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
