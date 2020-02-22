@@ -2,7 +2,7 @@
 
 This is the modified version of [BinaryCookies](https://github.com/interstateone/BinaryCookies).
 
-You may need to download & install [Swift 5 Runtime Support for Command Line Tools](https://support.apple.com/kb/DL1998) to run this tool on macOS version prior to 10.14.4.
+Supports macOS 10.13 and above, iOS 12.0 and above. You may need to download & install [Swift 5 Runtime Support for Command Line Tools](https://support.apple.com/kb/DL1998) to run this tool on macOS version prior to 10.14.4.
 
 ## Usage
 
