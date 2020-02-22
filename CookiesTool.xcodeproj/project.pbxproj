@@ -43,7 +43,7 @@
 		D614BE1E23FD1CCF00D32B27 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D614BE1F23FD1CCF00D32B27 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D68E05C823FFD91900C24AB0 /* NetscapeCookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetscapeCookies.swift; sourceTree = "<group>"; };
-		D68E05CE2400DF6F00C24AB0 /* CookiesTool-iOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CookiesTool-iOS"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68E05CE2400DF6F00C24AB0 /* CookiesTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CookiesTool; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68E05CF2400DF6F00C24AB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D68E05D42400DF6F00C24AB0 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		D68E05D52400DF6F00C24AB0 /* platform.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = platform.entitlements; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D614BE1223FD19BE00D32B27 /* CookiesTool */,
-				D68E05CE2400DF6F00C24AB0 /* CookiesTool-iOS */,
+				D68E05CE2400DF6F00C24AB0 /* CookiesTool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 			);
 			name = "CookiesTool-iOS";
 			productName = "CookiesTool-iOS";
-			productReference = D68E05CE2400DF6F00C24AB0 /* CookiesTool-iOS */;
+			productReference = D68E05CE2400DF6F00C24AB0 /* CookiesTool */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -459,7 +459,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable/BinaryCodable.modulemap\"";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -478,7 +478,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/BinaryCodable/BinaryCodable.modulemap\"";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -524,7 +524,7 @@
 					"$(inherited)",
 					"-DTHEOS_INSTANCE_NAME=\"\\\"CookiesTool-iOS\\\"\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -573,7 +573,7 @@
 					"$(inherited)",
 					"-DTHEOS_INSTANCE_NAME=\"\\\"CookiesTool-iOS\\\"\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
