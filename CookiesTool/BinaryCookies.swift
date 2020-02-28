@@ -29,6 +29,14 @@ public class BinaryCookies: BinaryCodable, Codable {
         metadata = Data()
     }
     
+    init(from cookies: EditThisCookie) {
+        var pages: [BinaryPage] = []
+        Dictionary(grouping: cookies, by: { $0.domain })
+            .forEach({ pages.append(BinaryPage(with: $0.value.map({ BinaryCookie(from: $0) }))) })
+        self.pages = pages
+        metadata = Data()
+    }
+    
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -238,6 +246,24 @@ public class BinaryCookie: BinaryCodable, Codable {
         self.flags = flags
         creation = Date()
         expiration = cookie.expiration
+    }
+    
+    init(from cookie: EditThisCookieItem) {
+        version = 0
+        url = cookie.domain
+        name = cookie.name
+        path = cookie.path
+        value = cookie.value
+        var flags: Flags = []
+        if cookie.httpOnly {
+            flags.insert(.isHTTPOnly)
+        }
+        if cookie.secure {
+            flags.insert(.isSecure)
+        }
+        self.flags = flags
+        creation = Date()
+        expiration = cookie.expirationDate ?? Date()
     }
     
     public required init(from decoder: Decoder) throws {

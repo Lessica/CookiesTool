@@ -1,10 +1,11 @@
 import Foundation
 import BinaryCodable
 
+
 func usage() {
     print("""
 Usage: CookiesTool [OPTIONS]... [FILE]...
-Convert between Apple BinaryCookies, Property List, JSON, Netscape HTTP Cookie File.
+Convert between Apple BinaryCookies, EditThisCookie and Netscape HTTP Cookie File.
 
 Command options are (-l is the default):
   -h | --help               show this message and exit
@@ -15,9 +16,10 @@ Command options are (-l is the default):
                             with one file argument;
   -r | --readable           if writing JSON, output in human-readable form
 
-FORMAT is one of: binary plist-binary plist-xml json netscape
+FORMAT is one of: binarycookies plist xml json edit-this-cookie netscape
 """)
 }
+
 
 enum CustomError: LocalizedError {
     case invalidOption
@@ -48,33 +50,42 @@ enum CustomError: LocalizedError {
     }
 }
 
+
 enum Mode {
     case help
     case lint
     case convert
 }
 
+
 enum Format: String {
-    case binary      = "binary"
-    case plistBinary = "plist-binary"
-    case plistXML    = "plist-xml"
-    case JSON        = "json"
-    case netscape    = "netscape"
+    case invalid        = ""
+    case binary         = "binarycookies"
+    case plistBinary    = "plist"
+    case plistXML       = "xml"
+    case JSON           = "json"
+    case editThisCookie = "edit-this-cookie"
+    case netscape       = "netscape"
 }
+
 
 struct Options: OptionSet {
     let rawValue: Int
     static let jsonReadable = Options(rawValue: 1 << 0)
 }
 
+
 do {
     
     var mode = Mode.lint
-    var format = Format.binary
+    var inFormat = Format.invalid
+    var outFormat = Format.binary
     var options: Options = []
     var outputPath: String? = nil
     var inputPaths: [String] = []
-
+    
+    
+    // MARK: - Parse Arguments
     let args = CommandLine.arguments
     var i = 1
     while i < args.count {
@@ -94,7 +105,7 @@ do {
             guard let argiFormat = Format(rawValue: argi) else {
                 throw CustomError.invalidArgumentFormat
             }
-            format = argiFormat
+            outFormat = argiFormat
             i = i + 1
         }
         else if args[i] == "-r" || args[i] == "--readable" {
@@ -115,77 +126,112 @@ do {
         i = i + 1
     }
     
-    if mode == .help {
+    
+    // MARK: - Help
+    guard mode != .help else {
         usage()
         exit(EXIT_SUCCESS)
     }
     
+    
+    // MARK: - Lint (Read)
     guard let path = inputPaths.first else {
         throw CustomError.missingArgumentFile
     }
-    
     let url = URL(fileURLWithPath: path, relativeTo: nil)
     let data = try Data(contentsOf: url)
-    
+    var rawCookies: Any?
     var binaryCookies: BinaryCookies
     if let tryDecodeCookies = try? BinaryDataDecoder().decode(BinaryCookies.self, from: data) {
-        binaryCookies = tryDecodeCookies
-    }
-    else if let tryDecodeCookies = try? JSONDecoder().decode(BinaryCookies.self, from: data) {
-        binaryCookies = tryDecodeCookies
-    }
-    else if let tryDecodeCookies = try? PropertyListDecoder().decode(BinaryCookies.self, from: data) {
-        binaryCookies = tryDecodeCookies
-    }
-    else if let tryDecodeCookies = try? BinaryDataDecoder().decode(NetscapeCookies.self, from: data) {
-        if mode == .lint {
+        inFormat = .binary
+        guard mode != .lint else {
             dump(tryDecodeCookies)
             exit(EXIT_SUCCESS)
         }
-        
+        binaryCookies = tryDecodeCookies
+    }
+    else if let tryDecodeCookies = try? PropertyListDecoder().decode(BinaryCookies.self, from: data) {
+        inFormat = .plistBinary
+        guard mode != .lint else {
+            dump(tryDecodeCookies)
+            exit(EXIT_SUCCESS)
+        }
+        binaryCookies = tryDecodeCookies
+    }
+    else if let tryDecodeCookies = try? JSONDecoder().decode(BinaryCookies.self, from: data) {
+        inFormat = .JSON
+        guard mode != .lint else {
+            dump(tryDecodeCookies)
+            exit(EXIT_SUCCESS)
+        }
+        binaryCookies = tryDecodeCookies
+    }
+    else if let tryDecodeCookies = try? JSONDecoder().decode(EditThisCookie.self, from: data) {
+        inFormat = .editThisCookie
+        guard mode != .lint else {
+            dump(tryDecodeCookies)
+            exit(EXIT_SUCCESS)
+        }
+        if outFormat == inFormat { rawCookies = tryDecodeCookies }
+        binaryCookies = BinaryCookies(from: tryDecodeCookies)
+    }
+    else if let tryDecodeCookies = try? BinaryDataDecoder().decode(NetscapeCookies.self, from: data) {
+        inFormat = .netscape
+        guard mode != .lint else {
+            dump(tryDecodeCookies)
+            exit(EXIT_SUCCESS)
+        }
+        if outFormat == inFormat { rawCookies = tryDecodeCookies }
         binaryCookies = BinaryCookies(from: tryDecodeCookies)
     }
     else {
         throw CustomError.invalidFileFormat
     }
     
-    if mode == .lint {
-        dump(binaryCookies)
-        exit(EXIT_SUCCESS)
-    }
     
+    // MARK: - Convert
     guard let toPath = outputPath else {
         throw CustomError.missingOptionOutput
     }
-    
     let toURL = URL(fileURLWithPath: toPath, relativeTo: nil)
-    
-    var outputData: Data? = nil
-    if format == .binary {
+    var outputData: Data
+    switch outFormat {
+    case .binary:
         outputData = try BinaryDataEncoder().encode(binaryCookies)
-    }
-    else if format == .plistBinary {
+    case .plistBinary:
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .binary
         outputData = try encoder.encode(binaryCookies)
-    }
-    else if format == .plistXML {
+    case .plistXML:
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .xml
         outputData = try encoder.encode(binaryCookies)
-    }
-    else if format == .JSON {
+    case .JSON:
         let encoder = JSONEncoder()
-        if options.contains(.jsonReadable) {
-            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        }
+        encoder.outputFormatting = options.contains(.jsonReadable) ? [.prettyPrinted, .sortedKeys] : []
         outputData = try encoder.encode(binaryCookies)
-    }
-    else if format == .netscape {
-        outputData = try BinaryDataEncoder().encode(NetscapeCookies(from: binaryCookies))
+    case .editThisCookie:
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = options.contains(.jsonReadable) ? [.prettyPrinted, .sortedKeys] : []
+        if let rawCookies = rawCookies as? EditThisCookie {
+            outputData = try encoder.encode(rawCookies)
+        } else {
+            outputData = try encoder.encode(EditThisCookie(from: binaryCookies))
+        }
+    case .netscape:
+        if let rawCookies = rawCookies as? NetscapeCookies {
+            outputData = try BinaryDataEncoder().encode(rawCookies)
+        } else {
+            outputData = try BinaryDataEncoder().encode(NetscapeCookies(from: binaryCookies))
+        }
+    case .invalid:
+        outputData = Data()
     }
     
-    try outputData!.write(to: toURL)
+    
+    // MARK: - Convert (Write)
+    try outputData.write(to: toURL)
+    
 }
 catch let error {
     print(error.localizedDescription)

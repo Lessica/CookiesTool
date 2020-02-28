@@ -14,7 +14,8 @@ class NetscapeCookies: BinaryCodable, Codable {
     }
     
     init(from cookies: BinaryCookies) {
-        self.cookies = cookies.pages.flatMap({ $0.cookies })
+        self.cookies = cookies.pages
+            .flatMap({ $0.cookies })
             .map({ NetscapeCookie(from: $0) })
     }
     
