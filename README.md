@@ -8,7 +8,8 @@ Supports macOS 10.13 and above, iOS 12.0 and above. You may need to download & i
 
 ```
 Usage: CookiesTool [OPTIONS]... [FILE]...
-Convert between Apple BinaryCookies, Property List, JSON, Netscape HTTP Cookie File.
+Convert between Apple BinaryCookies, EditThisCookie (JSON) and Netscape HTTP Cookie File.
+
 Command options are (-l is the default):
   -h | --help               show this message and exit
   -l | --lint               check the cookies file for syntax errors
@@ -17,7 +18,8 @@ Command options are (-l is the default):
                             the -o option is used with -c, and is only useful
                             with one file argument;
   -r | --readable           if writing JSON, output in human-readable form
-FORMAT is one of: binary plist-binary plist-xml json netscape
+
+FORMAT is one of: binarycookies plist xml json edit-this-cookie netscape
 ```
 
 ## File Format
