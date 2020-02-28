@@ -13,6 +13,7 @@
 		D614BE2023FD1CCF00D32B27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1E23FD1CCF00D32B27 /* Extensions.swift */; };
 		D614BE2123FD1CCF00D32B27 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614BE1F23FD1CCF00D32B27 /* main.swift */; };
 		D620043F2409538D00EB0771 /* EditThisCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620043E2409538D00EB0771 /* EditThisCookie.swift */; };
+		D646E2E524098F3800592919 /* EditThisCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620043E2409538D00EB0771 /* EditThisCookie.swift */; };
 		D68E05C923FFD91900C24AB0 /* NetscapeCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E05C823FFD91900C24AB0 /* NetscapeCookies.swift */; };
 		D68E05D02400DF6F00C24AB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68E05CF2400DF6F00C24AB0 /* Foundation.framework */; };
 		D68E05E12400E1B100C24AB0 /* NetscapeCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E05C823FFD91900C24AB0 /* NetscapeCookies.swift */; };
@@ -328,6 +329,7 @@
 			files = (
 				D68E05E22400E1B100C24AB0 /* BinaryCookies.swift in Sources */,
 				D68E05E32400E1B100C24AB0 /* Extensions.swift in Sources */,
+				D646E2E524098F3800592919 /* EditThisCookie.swift in Sources */,
 				D68E05E42400E1B100C24AB0 /* main.swift in Sources */,
 				D68E05E12400E1B100C24AB0 /* NetscapeCookies.swift in Sources */,
 			);
@@ -386,7 +388,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -440,7 +443,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
