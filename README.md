@@ -2,13 +2,13 @@
 
 This is the modified version of [BinaryCookies](https://github.com/interstateone/BinaryCookies).
 
-Supports macOS 10.13 and above, iOS 12.0 and above. You may need to download & install [Swift 5 Runtime Support for Command Line Tools](https://support.apple.com/kb/DL1998) to run this tool on macOS version prior to 10.14.4.
+Supports macOS 10.15 and above, iOS 13.0 and above.
 
 ## Usage
 
 ```
 Usage: CookiesTool [OPTIONS]... [FILE]...
-Convert between Apple BinaryCookies, EditThisCookie (JSON) and Netscape HTTP Cookie File.
+Convert between Apple BinaryCookies, EditThisCookie (JSON), Perl::LWP and Netscape HTTP Cookie File.
 
 Command options are (-l is the default):
   -h | --help               show this message and exit
@@ -19,7 +19,7 @@ Command options are (-l is the default):
                             with one file argument;
   -r | --readable           if writing JSON, output in human-readable form
 
-FORMAT is one of: binarycookies plist xml json edit-this-cookie netscape
+FORMAT is one of: binarycookies plist xml json edit-this-cookie netscape perl-lwp
 ```
 
 ## File Format
