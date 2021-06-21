@@ -68,7 +68,7 @@ public class LWPCookieJar: Codable, BinaryCodable, CookieJarConvertible, HTTPCoo
         while !container.isAtEnd {
             do {
                 if LWPCookieJar.skippedPrefixes.contains(Unicode.Scalar(try container.peek(length: 1).first!)) {
-                    throw NetscapeCookieJarError.lineShouldSkip
+                    throw LWPCookieJarError.lineShouldSkip
                 }
                 var cookieContainer = container.nestedContainer(maxLength: nil)
                 let cookie = try cookieContainer.decode(LWPCookie.self)
