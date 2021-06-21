@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
+   LastUpgradeVersion = "1250"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -52,28 +52,32 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/EditThisCookie.json"
+            argument = "~/Desktop/EditThisCookie.json"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.txt"
+            argument = "~/Desktop/Cookies_PerlLWP.txt"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.json"
+            argument = "~/Desktop/Cookies_Netscape.txt"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.plist"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.xml"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.binarycookies"
+            argument = "~/Desktop/Cookies.json"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "~/Desktop/Cookies.plist"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "~/Desktop/Cookies.xml"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "~/Desktop/Cookies.binarycookies"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-c"
@@ -101,6 +105,10 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "edit-this-cookie"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "perl-lwp"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -108,27 +116,31 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/EditThisCookie.json"
+            argument = "~/Desktop/EditThisCookie.json"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "~/Desktop/Cookies_Netscape.txt"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "~/Desktop/Cookies_PerlLWP.txt"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.txt"
+            argument = "~/Desktop/Cookies.json"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.json"
+            argument = "~/Desktop/Cookies.plist"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.plist"
+            argument = "~/Desktop/Cookies.xml"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.xml"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "/Users/darwin/Desktop/Cookies.binarycookies"
+            argument = "~/Desktop/Cookies.binarycookies"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument

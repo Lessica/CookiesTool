@@ -5,7 +5,7 @@ import BinaryCodable
 func usage() {
     print("""
 Usage: CookiesTool [OPTIONS]... [FILE]...
-Convert between Apple BinaryCookies, EditThisCookie and Netscape HTTP Cookie File.
+Convert between Apple BinaryCookies, EditThisCookie (JSON), Perl::LWP and Netscape HTTP Cookie File.
 
 Command options are (-l is the default):
   -h | --help               show this message and exit
@@ -16,7 +16,7 @@ Command options are (-l is the default):
                             with one file argument;
   -r | --readable           if writing JSON, output in human-readable form
 
-FORMAT is one of: binarycookies plist xml json edit-this-cookie netscape
+FORMAT is one of: \(Format.allCases.map({ $0.rawValue }).joined(separator: " "))
 """)
 }
 
@@ -58,14 +58,15 @@ enum Mode {
 }
 
 
-enum Format: String {
-    case invalid        = ""
+enum Format: String, CaseIterable {
     case binary         = "binarycookies"
     case plistBinary    = "plist"
     case plistXML       = "xml"
     case JSON           = "json"
     case editThisCookie = "edit-this-cookie"
     case netscape       = "netscape"
+    case PerlLWP        = "perl-lwp"
+    case invalid        = ""
 }
 
 
@@ -138,51 +139,60 @@ do {
     guard let path = inputPaths.first else {
         throw CustomError.missingArgumentFile
     }
-    let url = URL(fileURLWithPath: path, relativeTo: nil)
+    let url = URL(fileURLWithPath: (path as NSString).expandingTildeInPath, relativeTo: nil).standardizedFileURL
     let data = try Data(contentsOf: url)
     var rawCookies: Any?
-    var binaryCookies: BinaryCookies
-    if let tryDecodeCookies = try? BinaryDataDecoder().decode(BinaryCookies.self, from: data) {
+    var middleCookieJar: MiddleCookieJar
+    if let tryCookieJar = try? BinaryDataDecoder().decode(BinaryCookieJar.self, from: data) {
         inFormat = .binary
         guard mode != .lint else {
-            dump(tryDecodeCookies)
+            dump(tryCookieJar)
             exit(EXIT_SUCCESS)
         }
-        binaryCookies = tryDecodeCookies
+        middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryDecodeCookies = try? PropertyListDecoder().decode(BinaryCookies.self, from: data) {
+    else if let tryCookieJar = try? PropertyListDecoder().decode(BinaryCookieJar.self, from: data) {
         inFormat = .plistBinary
         guard mode != .lint else {
-            dump(tryDecodeCookies)
+            dump(tryCookieJar)
             exit(EXIT_SUCCESS)
         }
-        binaryCookies = tryDecodeCookies
+        middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryDecodeCookies = try? JSONDecoder().decode(BinaryCookies.self, from: data) {
+    else if let tryCookieJar = try? JSONDecoder().decode(BinaryCookieJar.self, from: data) {
         inFormat = .JSON
         guard mode != .lint else {
-            dump(tryDecodeCookies)
+            dump(tryCookieJar)
             exit(EXIT_SUCCESS)
         }
-        binaryCookies = tryDecodeCookies
+        middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryDecodeCookies = try? JSONDecoder().decode(EditThisCookie.self, from: data) {
+    else if let tryCookieJar = try? JSONDecoder().decode(EditThisCookie.self, from: data), tryCookieJar.count > 0 {
         inFormat = .editThisCookie
         guard mode != .lint else {
-            dump(tryDecodeCookies)
+            dump(tryCookieJar)
             exit(EXIT_SUCCESS)
         }
-        if outFormat == inFormat { rawCookies = tryDecodeCookies }
-        binaryCookies = BinaryCookies(from: tryDecodeCookies)
+        if outFormat == inFormat { rawCookies = tryCookieJar }
+        middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryDecodeCookies = try? BinaryDataDecoder().decode(NetscapeCookies.self, from: data) {
+    else if let tryCookieJar = try? BinaryDataDecoder().decode(NetscapeCookieJar.self, from: data), tryCookieJar.cookies.count > 0 {
         inFormat = .netscape
         guard mode != .lint else {
-            dump(tryDecodeCookies)
+            dump(tryCookieJar)
             exit(EXIT_SUCCESS)
         }
-        if outFormat == inFormat { rawCookies = tryDecodeCookies }
-        binaryCookies = BinaryCookies(from: tryDecodeCookies)
+        if outFormat == inFormat { rawCookies = tryCookieJar }
+        middleCookieJar = tryCookieJar.toMiddleCookieJar()
+    }
+    else if let tryCookieJar = try? BinaryDataDecoder().decode(LWPCookieJar.self.self, from: data), tryCookieJar.cookies.count > 0 {
+        inFormat = .PerlLWP
+        guard mode != .lint else {
+            dump(tryCookieJar)
+            exit(EXIT_SUCCESS)
+        }
+        if outFormat == inFormat { rawCookies = tryCookieJar }
+        middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
     else {
         throw CustomError.invalidFileFormat
@@ -193,36 +203,42 @@ do {
     guard let toPath = outputPath else {
         throw CustomError.missingOptionOutput
     }
-    let toURL = URL(fileURLWithPath: toPath, relativeTo: nil)
+    let toURL = URL(fileURLWithPath: (toPath as NSString).expandingTildeInPath, relativeTo: nil).standardizedFileURL
     var outputData: Data
     switch outFormat {
     case .binary:
-        outputData = try BinaryDataEncoder().encode(binaryCookies)
+        outputData = try BinaryDataEncoder().encode(BinaryCookieJar(from: middleCookieJar))
     case .plistBinary:
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .binary
-        outputData = try encoder.encode(binaryCookies)
+        outputData = try encoder.encode(BinaryCookieJar(from: middleCookieJar))
     case .plistXML:
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .xml
-        outputData = try encoder.encode(binaryCookies)
+        outputData = try encoder.encode(BinaryCookieJar(from: middleCookieJar))
     case .JSON:
         let encoder = JSONEncoder()
         encoder.outputFormatting = options.contains(.jsonReadable) ? [.prettyPrinted, .sortedKeys] : []
-        outputData = try encoder.encode(binaryCookies)
+        outputData = try encoder.encode(BinaryCookieJar(from: middleCookieJar))
     case .editThisCookie:
         let encoder = JSONEncoder()
         encoder.outputFormatting = options.contains(.jsonReadable) ? [.prettyPrinted, .sortedKeys] : []
         if let rawCookies = rawCookies as? EditThisCookie {
             outputData = try encoder.encode(rawCookies)
         } else {
-            outputData = try encoder.encode(EditThisCookie(from: binaryCookies))
+            outputData = try encoder.encode(middleCookieJar.toEditThisCookie())
         }
     case .netscape:
-        if let rawCookies = rawCookies as? NetscapeCookies {
+        if let rawCookies = rawCookies as? NetscapeCookieJar {
             outputData = try BinaryDataEncoder().encode(rawCookies)
         } else {
-            outputData = try BinaryDataEncoder().encode(NetscapeCookies(from: binaryCookies))
+            outputData = try BinaryDataEncoder().encode(NetscapeCookieJar(from: middleCookieJar))
+        }
+    case .PerlLWP:
+        if let rawCookies = rawCookies as? LWPCookieJar {
+            outputData = try BinaryDataEncoder().encode(rawCookies)
+        } else {
+            outputData = try BinaryDataEncoder().encode(LWPCookieJar(from: middleCookieJar))
         }
     case .invalid:
         outputData = Data()
