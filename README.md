@@ -2,6 +2,15 @@
 
 This is a maintained fork of [BinaryCookies](https://github.com/interstateone/BinaryCookies).
 
+Convert cookies between:
+
+- BinaryCookies (Apple)
+- EditThisCookie (JSON)
+- Perl::LWP
+- Netscape HTTP Cookie File (Mozilla, curl).
+- JSON
+- Property List (XML)
+
 Supports macOS 10.15 and above, iOS 13.0 and above.
 
 ## TODOs
@@ -24,7 +33,7 @@ Command options are (-l is the default):
                             with one file argument;
   -r | --readable           if writing JSON, output in human-readable form
 
-FORMAT is one of: binarycookies plist xml json edit-this-cookie netscape perl-lwp
+FORMAT is one of: binarycookies edit-this-cookie netscape perl-lwp
 ```
 
 ## File Format
