@@ -1,8 +1,13 @@
 # CookiesTool
 
-This is the modified version of [BinaryCookies](https://github.com/interstateone/BinaryCookies).
+This is a maintained fork of [BinaryCookies](https://github.com/interstateone/BinaryCookies).
 
 Supports macOS 10.15 and above, iOS 13.0 and above.
+
+## TODOs
+
+- Unit Tests
+- Framework Target & SPM Support
 
 ## Usage
 
