@@ -29,4 +29,5 @@ extension MiddleCookieJar: EditThisCookieExportable {
 
 extension HTTPCookiePropertyKey {
     static let httpOnly = HTTPCookiePropertyKey(rawValue: "httpOnly")
+    static let sessionOnly = HTTPCookiePropertyKey(rawValue: "sessionOnly")
 }

@@ -508,7 +508,7 @@ public class LWPCookie: Codable, BinaryCodable, CookieConvertible, HTTPCookieExp
                     if port != nil {
                         try container.encode("; ", encoding: .utf8, terminator: nil)
                         try container.encode("port=", encoding: .utf8, terminator: nil)
-                        try container.encode(String(describing: port), encoding: .utf8, terminator: nil)
+                        try container.encode(String(describing: port!), encoding: .utf8, terminator: nil)
                     }
                 case .pathSpec:
                     if pathSpec {

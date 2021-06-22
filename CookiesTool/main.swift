@@ -60,9 +60,6 @@ enum Mode {
 
 enum Format: String, CaseIterable {
     case binary         = "binarycookies"
-    case plistBinary    = "plist"
-    case plistXML       = "xml"
-    case JSON           = "json"
     case editThisCookie = "edit-this-cookie"
     case netscape       = "netscape"
     case PerlLWP        = "perl-lwp"
@@ -151,22 +148,6 @@ do {
         }
         middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryCookieJar = try? PropertyListDecoder().decode(BinaryCookieJar.self, from: data) {
-        inFormat = .plistBinary
-        guard mode != .lint else {
-            dump(tryCookieJar)
-            exit(EXIT_SUCCESS)
-        }
-        middleCookieJar = tryCookieJar.toMiddleCookieJar()
-    }
-    else if let tryCookieJar = try? JSONDecoder().decode(BinaryCookieJar.self, from: data) {
-        inFormat = .JSON
-        guard mode != .lint else {
-            dump(tryCookieJar)
-            exit(EXIT_SUCCESS)
-        }
-        middleCookieJar = tryCookieJar.toMiddleCookieJar()
-    }
     else if let tryCookieJar = try? JSONDecoder().decode(EditThisCookie.self, from: data), tryCookieJar.count > 0 {
         inFormat = .editThisCookie
         guard mode != .lint else {
@@ -208,18 +189,6 @@ do {
     switch outFormat {
     case .binary:
         outputData = try BinaryDataEncoder().encode(BinaryCookieJar(from: middleCookieJar))
-    case .plistBinary:
-        let encoder = PropertyListEncoder()
-        encoder.outputFormat = .binary
-        outputData = try encoder.encode(BinaryCookieJar(from: middleCookieJar))
-    case .plistXML:
-        let encoder = PropertyListEncoder()
-        encoder.outputFormat = .xml
-        outputData = try encoder.encode(BinaryCookieJar(from: middleCookieJar))
-    case .JSON:
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = options.contains(.jsonReadable) ? [.prettyPrinted, .sortedKeys] : []
-        outputData = try encoder.encode(BinaryCookieJar(from: middleCookieJar))
     case .editThisCookie:
         let encoder = JSONEncoder()
         encoder.outputFormatting = options.contains(.jsonReadable) ? [.prettyPrinted, .sortedKeys] : []

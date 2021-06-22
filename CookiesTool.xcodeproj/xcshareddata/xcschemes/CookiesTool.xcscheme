@@ -53,26 +53,14 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "~/Desktop/EditThisCookie.json"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies_PerlLWP.txt"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "~/Desktop/Cookies_PerlLWP.txt"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "~/Desktop/Cookies_Netscape.txt"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies.json"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies.plist"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies.xml"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
@@ -105,11 +93,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "edit-this-cookie"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "perl-lwp"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-o"
@@ -117,7 +105,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "~/Desktop/EditThisCookie.json"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "~/Desktop/Cookies_Netscape.txt"
@@ -125,19 +113,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "~/Desktop/Cookies_PerlLWP.txt"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies.json"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies.plist"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "~/Desktop/Cookies.xml"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "~/Desktop/Cookies.binarycookies"
