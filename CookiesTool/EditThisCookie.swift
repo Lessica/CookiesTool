@@ -59,7 +59,7 @@ public class EditThisCookieItem: Codable, CookieConvertible, HTTPCookieExportabl
     public var storeId: String
     public var value: String
     public var size: Int {
-        return value.count
+        return name.count + value.count
     }
     public var id: Int
     public static var autoIncrement: Int = 1

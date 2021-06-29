@@ -148,7 +148,7 @@ do {
         }
         middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryCookieJar = try? JSONDecoder().decode(EditThisCookie.self, from: data), tryCookieJar.count > 0 {
+    else if let tryCookieJar = try? JSONDecoder().decode(EditThisCookie.self, from: data) {
         inFormat = .editThisCookie
         guard mode != .lint else {
             dump(tryCookieJar)
@@ -157,7 +157,7 @@ do {
         if outFormat == inFormat { rawCookies = tryCookieJar }
         middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryCookieJar = try? BinaryDataDecoder().decode(NetscapeCookieJar.self, from: data), tryCookieJar.cookies.count > 0 {
+    else if let tryCookieJar = try? BinaryDataDecoder().decode(NetscapeCookieJar.self, from: data) {
         inFormat = .netscape
         guard mode != .lint else {
             dump(tryCookieJar)
@@ -166,7 +166,7 @@ do {
         if outFormat == inFormat { rawCookies = tryCookieJar }
         middleCookieJar = tryCookieJar.toMiddleCookieJar()
     }
-    else if let tryCookieJar = try? BinaryDataDecoder().decode(LWPCookieJar.self.self, from: data), tryCookieJar.cookies.count > 0 {
+    else if let tryCookieJar = try? BinaryDataDecoder().decode(LWPCookieJar.self.self, from: data) {
         inFormat = .PerlLWP
         guard mode != .lint else {
             dump(tryCookieJar)
@@ -220,4 +220,5 @@ do {
 }
 catch let error {
     print(error.localizedDescription)
+    exit(EXIT_FAILURE)
 }
